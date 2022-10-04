@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/style.css')}}">
+    <title>Sasquatch Websighting</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="nav">
+            <h1>Sasquatch Websighting</h1>
+            <div class="userLinks">
+                <h2>{{session.first_name}} {{session.last_name}}</h2>
+                <h3><a href="/success/">Dashboard</a></h3>
+                <h3><a href="/Logout">Logout</a></h3>
+            </div>
+        </div>
+    
+        <h1>{{one_sighting.location}} on {{one_sighting.date_made}}</h1>
+        <div class="sightingView">
+            <h3>What Happened:</h3>
+            <textarea name="description" cols="50" rows="5">{{one_sighting.description}}</textarea>
+            <h3># of Sasquatches: {{one_sighting.num_sasquatch}}</h3>
+            <h3>Reported by: {{one_sighting.creator.first_name}} {{one_sighting.creator.last_name}}</h3>
+        </div>
+    </div>
+
+</body>
+</html>

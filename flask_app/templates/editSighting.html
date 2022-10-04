@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/style.css')}}">
+    <title>Sasquatch Websighting</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="nav">
+            <h1>Sasquatch Websighting</h1>
+            <div class="userLinks">
+                <h2>{{session.first_name}} {{session.last_name}}</h2>
+                <h3><a href="/success/">Dashboard</a></h3>
+                <h3><a href="/Logout">Logout</a></h3>
+            </div>
+        </div>
+    
+        <div class="sightForm">
+            <h2>Edit this Sighting</h2>
+            <form action="/updateSighting/{{one_sighting.id}}/update" method="POST">
+                <div>
+                    <label for="location">Location:</label>
+                    <input type="text" name="location" value="{{one_sighting.location}}">
+                </div>
+                <div>
+                    <h5>What Happened:</h5>
+                    <textarea name="description" value="" cols="50" rows="5">{{one_sighting.description}}</textarea>
+                </div>
+                <div>
+                    <label for="date_made">Date of Sighting: </label>
+                    <input type="date" name="date_made" value="{{one_sighting.date_made}}">
+                </div>
+                <div>
+                    <label for="num_sasquatch">Number of Sasquatch: </label>
+                    <input type="number" name="num_sasquatch" value="{{one_sighting.num_sasquatch}}">
+                </div>
+                <input type="submit" value="Report">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
